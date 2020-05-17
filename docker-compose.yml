@@ -1,0 +1,17 @@
+version: '3.1'
+services:
+  
+  flask_db:
+    image: mysql:5.7
+    container_name: flask_db
+    environment:
+      - MYSQL_ROOT_PASSWORD=flaskdb
+    ports:
+      - 3299:3306
+    volumes:
+      - ./database:/var/lib/mysql
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 49999
+        hard: 99999
